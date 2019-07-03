@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int pin = 13;
 int _pin=pin;
 int incomingByte=0;
@@ -23,66 +22,66 @@ void cs(){
  }
 void ws(){
 digitalWrite(_pin,LOW);
- delay(_dottime*7);
+ delay(_dottime*4);
 }
 
 void zifuchuli(int b){
  
   
     switch(char(b)){
-      case 'a':Serial.print("*- ");
+      case 'a':dot();dash();
                cs();break;
-      case 'b':Serial.print("-*** ");
+      case 'b':dash();dot();dot();dot();
                cs();break;
-      case 'c':Serial.print("-*-* ");
+      case 'c':dash();dot();dash();dot();
                cs();break;
-      case 'd':Serial.print("-** ");
+      case 'd':dash();dot();dot();
                cs();break;
-      case 'e':Serial.print("* ");
+      case 'e':dot();
                cs();break;
-      case 'f':Serial.print("**-* ");
+      case 'f':dot();dot();dash();dot();
                cs();break;
-      case 'g':Serial.print("--* ");
+      case 'g':dash();dash();dot();
                cs();break;
-      case 'h':Serial.print("**** ");
+      case 'h':dot();dot();dot();dot();
                cs();break;
-      case 'i':Serial.print("** ");
+      case 'i':dot();dot();
                cs();break;
-      case 'j':Serial.print("*--- ");
+      case 'j':dot();dash();dash();dash();
                cs();break;
-      case 'k':Serial.print("-*- ");
+      case 'k':dash();dot();dash();
                cs();break;
-      case 'm':Serial.print("-- ");
+      case 'm':dash();dash();
                cs();break;
-      case 'n':Serial.print("-* ");
+      case 'n':dash();dot();
                cs();break;
-      case 'o':Serial.print("--- ");
+      case 'o':dash();dash();dash();
                cs();break;
-      case 'p':Serial.print("*--* ");
+      case 'p':dot();dash();dash();dot();
                cs();break;
-      case 'q':Serial.print("--*- ");
+      case 'q':dash();dash();dot();dash();
                cs();break;
-      case 'r':Serial.print("*-* ");
+      case 'r':dot();dash();dot();
                cs();break;
-      case 's':Serial.print("*** ");
+      case 's':dot();dot();dot();
                cs();break;
-      case 't':Serial.print("- ");
+      case 't':dash();
                cs();break;
-      case 'u':Serial.print("**- ");
+      case 'u':dot();dot();dash();
                cs();break;
-      case 'v':Serial.print("***- ");
+      case 'v':dot();dot();dot();dash();
                cs();break;
-      case 'w':Serial.print("*-- ");
+      case 'w':dot();dash();dash();
                cs();break;
-      case 'x':Serial.print("-**- ");
+      case 'x':dash();dot();dot();dash();
                cs();break;
-      case 'y':Serial.print("-*-- ");
+      case 'y':dash();dot();dash();dash();
                cs();break;
-      case 'z':Serial.print("--** ");
+      case 'z':dash();dash();dot();dot();
                cs();break;
-      case ' ':Serial.print("/ ");
-               cs();break;
-      default:Serial.println();
+      case ' ':dot();
+               ws();break;
+      default:dot();
                ws();
     }
 }
@@ -90,7 +89,10 @@ void setup() {
   pinMode(_pin, OUTPUT); 
   Serial.begin(9600);
 }   
-void loop() {   
+void loop() { 
+  if(Serial.available()>0){
     incomingByte=Serial.read();
     zifuchuli(incomingByte);
+  }
+}   
 }   
