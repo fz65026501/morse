@@ -27,11 +27,11 @@ void Morse::dash()
 void Morse::c_space()
 {
 	digitalWrite(_pin,LOW);
-	delay(_dottime*3);
+	delay(_dottime*2);
 }
 
 void Morse::w_space()
 {
 	digitalWrite(_pin,LOW);
-	delay(_dottime*7);
+	delay(_dottime*6);
 }
