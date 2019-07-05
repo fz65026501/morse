@@ -18,11 +18,11 @@ void dash() {
 }
 void cs(){
   digitalWrite(_pin,LOW);
-  delay(_dottime*3);
+  delay(_dottime*2);
  }
 void ws(){
 digitalWrite(_pin,LOW);
- delay(_dottime*4);
+ delay(_dottime*6);
 }
 
 void zifuchuli(int b){
